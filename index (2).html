@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B0B0D">
+<meta name="description" content="APEX Detailing — премиальный детейлинг авто: полировка, керамика, бронеплёнка и химчистка салона. Гарантия 3 года.">
+<title>APEX Detailing — премиальный детейлинг авто</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B0B0D'/%3E%3Cpath d='M8 24 16 7l8 17h-4.5L16 16.5 12.5 24z' fill='%23D4FF00'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0D;--card:#141418;--line:#26262E;--acc:#D4FF00;--txt:#FFFFFF;--sub:#A0A0A8;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px));background:var(--bg);-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:'Montserrat',Arial,sans-serif;line-height:1.55;overflow-x:hidden;min-width:320px}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-right)) 0 max(20px,env(safe-area-inset-left))}
+section{padding:84px 0}
+h1,h2,h3{line-height:1.15;font-weight:800}
+h2{font-size:clamp(26px,4vw,40px);margin-bottom:12px}
+.lead{color:var(--sub);max-width:620px;margin-bottom:36px}
+.acc{color:var(--acc)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--acc);background:var(--acc);color:var(--bg);font:700 15px 'Montserrat',Arial,sans-serif;padding:14px 26px;border-radius:12px;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,255,0,.25)}
+.btn.ghost{background:transparent;color:var(--txt);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc);box-shadow:none}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+/* Шапка */
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(11,11,13,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{font-weight:800;letter-spacing:.14em;font-size:16px}
+.logo span{color:var(--acc)}
+nav{display:flex;gap:26px;font-size:14px;font-weight:500;color:var(--sub)}
+nav a:hover{color:var(--acc)}
+.hright{display:flex;align-items:center;gap:16px}
+.tel{font-weight:600;font-size:14px;white-space:nowrap}
+.tel:hover{color:var(--acc)}
+.hright .btn{padding:10px 18px;font-size:13px}
+.burger{display:none;width:42px;height:42px;background:none;border:1px solid var(--line);border-radius:10px;cursor:pointer;position:relative}
+.burger i,.burger i::before,.burger i::after{position:absolute;left:11px;width:18px;height:2px;background:var(--txt);transition:.25s;content:''}
+.burger i{top:19px}.burger i::before{left:0;top:-6px}.burger i::after{left:0;top:6px}
+.burger.open i{background:transparent}.burger.open i::before{top:0;transform:rotate(45deg)}.burger.open i::after{top:0;transform:rotate(-45deg)}
+.mmenu{display:none;flex-direction:column;border-top:1px solid var(--line);padding:10px 20px 20px;background:var(--bg);max-height:calc(100vh - 80px);max-height:calc(100dvh - 80px);overflow-y:auto}
+.mmenu.open{display:flex}
+.mmenu a{padding:13px 0;border-bottom:1px solid var(--line);font-weight:500}
+.mmenu .btn{margin-top:16px;border-bottom:0}
+/* Hero */
+.hero{padding-top:150px;background:radial-gradient(900px 420px at 80% 0%,rgba(212,255,0,.09),transparent 60%)}
+.hero h1{font-size:clamp(32px,6vw,64px);max-width:860px;margin-bottom:20px}
+.hero p.lead{font-size:clamp(15px,2vw,18px)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:48px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.stat b{display:block;font-size:clamp(18px,2.4vw,26px);color:var(--acc);margin-bottom:4px}
+.stat span{color:var(--sub);font-size:13px}
+/* Услуги */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;transition:.25s}
+.card:hover{border-color:var(--acc);transform:translateY(-4px)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:rgba(212,255,0,.1);color:var(--acc);display:grid;place-items:center;font-size:22px;margin-bottom:18px}
+.card h3{font-size:18px;margin-bottom:10px}
+.card p{color:var(--sub);font-size:14px;flex:1;margin-bottom:18px}
+.price{font-weight:700;margin-bottom:16px}
+.price span{color:var(--acc)}
+.card .btn{padding:11px 18px;font-size:14px}
+
+/* ===== Слайдер «До / После» =====
+   Два слоя одного размера лежат друг на друге: «ПОСЛЕ» снизу, «ДО» сверху.
+   Верхний слой обрезается через clip-path: inset(0 X% 0 0) — кадр не двигается. */
+.ba{position:relative;width:100%;max-width:960px;margin:0 auto;aspect-ratio:16 / 9;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--card);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;touch-action:pan-y;cursor:ew-resize;isolation:isolate}
+.ba:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.ba .layer{position:absolute;inset:0;overflow:hidden}
+.ba .layer img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center center;display:block;pointer-events:none;-webkit-user-drag:none}
+#baAfter{background:linear-gradient(135deg,#1d1f26 0%,#12131a 55%,#0B0B0D 100%)}
+#baBefore{background:linear-gradient(135deg,#2b2c31 0%,#1a1b20 55%,#101013 100%);clip-path:inset(0 50% 0 0);will-change:clip-path}
+#baBefore img{filter:brightness(0.82) contrast(0.88) saturate(0.7)}
+/* Запасная подложка: показывается, только если файл не найден (onerror) */
+.ba .ph{display:none;position:absolute;top:50%;transform:translateY(-50%);width:42%;padding:14px 16px;border:1px dashed rgba(255,255,255,.2);border-radius:14px;background:rgba(11,11,13,.45);color:var(--sub);font-size:12px;line-height:1.45}
+.ba .ph b{display:block;color:var(--txt);font-size:13px;margin-bottom:4px}
+.ba .ph code{display:block;margin-top:6px;color:var(--acc);font:600 11px/1.3 ui-monospace,Menlo,Consolas,monospace;word-break:break-all}
+#baBefore .ph{left:6%}
+#baAfter .ph{right:6%;text-align:right}
+.ba .layer.miss .ph{display:block}
+.ba .layer.miss img{display:none}
+.tag{position:absolute;bottom:14px;z-index:3;padding:8px 14px;border-radius:10px;font-size:12px;font-weight:700;letter-spacing:.08em;color:#fff;background:rgba(11,11,13,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);max-width:46%;pointer-events:none}
+.tag.l{left:14px}
+.tag.r{right:14px;color:var(--acc);border-color:var(--acc)}
+.knob{position:absolute;top:0;bottom:0;left:50%;z-index:4;width:3px;background:var(--acc);transform:translateX(-50%);pointer-events:none}
+.knob::after{content:'‹ ›';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--acc);color:var(--bg);display:grid;place-items:center;font-weight:800;font-size:18px;letter-spacing:2px;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+@media(max-width:480px){
+  .tag{bottom:10px;padding:6px 10px;font-size:11px}
+  .tag.l{left:10px}.tag.r{right:10px}
+  .knob::after{width:40px;height:40px;font-size:16px}
+  .ba .ph{width:44%;padding:10px 12px;font-size:10px}
+  .ba .ph b{font-size:11px}
+  .ba .ph .d{display:none}
+  .ba .ph code{font-size:10px;margin-top:2px}
+}
+
+/* Калькулятор */
+.calc{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.panel h3{font-size:16px;margin-bottom:16px}
+.panel h3 em{font-style:normal;color:var(--acc);margin-right:8px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer;z-index:2;width:100%;height:100%}
+.opt label{display:block;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-size:14px;font-weight:600;transition:.2s}
+.opt label small{display:block;color:var(--sub);font-weight:500;margin-top:2px}
+.opt:hover label{border-color:var(--sub)}
+.opt input:checked+label{border-color:var(--acc);background:rgba(212,255,0,.08);color:var(--acc)}
+.opt input:focus-visible+label{outline:2px solid var(--acc);outline-offset:2px}
+.sum{position:sticky;top:90px}
+.row{display:flex;justify-content:space-between;gap:12px;color:var(--sub);font-size:14px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.row b{color:var(--txt);text-align:right}
+.total{font-size:clamp(30px,4vw,40px);font-weight:800;margin:18px 0 6px;color:var(--acc)}
+.old{color:var(--sub);text-decoration:line-through;font-size:18px;min-height:0}
+.save{display:inline-block;background:rgba(212,255,0,.12);color:var(--acc);border:1px solid var(--acc);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;margin:6px 0 14px}
+.hint{color:var(--sub);font-size:12px;margin-top:12px}
+[hidden]{display:none!important}
+/* Футер */
+footer{border-top:1px solid var(--line);padding:56px 0 calc(30px + env(safe-area-inset-bottom,0px));background:#09090B}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:34px}
+.fgrid h4{margin-bottom:12px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.fgrid p{color:var(--sub);font-size:14px;margin-bottom:6px}
+.copy{border-top:1px solid var(--line);padding-top:20px;color:var(--sub);font-size:12px}
+/* Модалка */
+.ov{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.ov.open{display:flex}
+.modal{position:relative;width:100%;max-width:440px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 26px;margin:auto}
+.x{position:absolute;top:12px;right:14px;width:38px;height:38px;border:0;background:none;color:var(--sub);font-size:26px;cursor:pointer;border-radius:8px}
+.x:hover{color:var(--acc)}
+.modal h3{font-size:22px;margin-bottom:6px}
+.modal .lead{font-size:14px;margin-bottom:18px}
+.fld{margin-bottom:14px}
+.fld label.t{display:block;font-size:12px;color:var(--sub);margin-bottom:6px;font-weight:600}
+.fld input[type=text],.fld input[type=tel]{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--txt);font:500 16px 'Montserrat',Arial,sans-serif;outline:none;transition:.2s}
+.fld input:focus{border-color:var(--acc)}
+.fld input.err{border-color:#ff5a5a}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg .opt label{text-align:center;padding:12px 8px}
+.pv{background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:14px;font-size:13px;color:var(--sub);margin-bottom:18px}
+.pv b{color:var(--txt)}
+.modal .btn{width:100%}
+.spin{width:16px;height:16px;border:2px solid rgba(11,11,13,.3);border-top-color:var(--bg);border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.ok{text-align:center;padding:14px 0}
+.ok .ck{width:68px;height:68px;border-radius:50%;background:var(--acc);color:var(--bg);display:grid;place-items:center;font-size:34px;font-weight:800;margin:0 auto 18px}
+/* Адаптив */
+@media(max-width:1020px){.grid4{grid-template-columns:repeat(2,1fr)}.calc{grid-template-columns:1fr}.sum{position:static}}
+@media(max-width:900px){nav,.hright .tel,.hright .btn{display:none}.burger{display:block}}
+@media(max-width:640px){section{padding:60px 0}.hero{padding-top:120px}.stats,.fgrid{grid-template-columns:1fr}.grid4{grid-template-columns:1fr}.cta .btn{width:100%}.panel{padding:20px}.modal{padding:26px 20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- Фиксированная шапка -->
+<header>
+  <div class="wrap hbar">
+    <a href="#top" class="logo">APEX <span>DETAILING</span></a>
+    <nav>
+      <a href="#services">Услуги</a><a href="#ba">До/После</a><a href="#calc">Калькулятор</a><a href="#contacts">Контакты</a>
+    </nav>
+    <div class="hright">
+      <a class="tel" href="tel:+74950000000">+7 (495) 000-00-00</a>
+      <button class="btn" data-open>Записаться</button>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mmenu"><i></i></button>
+    </div>
+  </div>
+  <div class="mmenu" id="mmenu">
+    <a href="#services">Услуги</a><a href="#ba">До/После</a><a href="#calc">Калькулятор</a><a href="#contacts">Контакты</a>
+    <a href="tel:+74950000000">+7 (495) 000-00-00</a>
+    <button class="btn" data-open>Записаться</button>
+  </div>
+</header>
+
+<main id="top">
+<!-- Главный экран -->
+<section class="hero">
+  <div class="wrap">
+    <h1>Защитим кузов вашего авто. <span class="acc">Гарантия 3 года.</span></h1>
+    <p class="lead">Премиальный детейлинг: полировка, керамика и бронеплёнка. Возвращаем глубину цвета и защищаем лак от сколов, реагентов и царапин.</p>
+    <div class="cta">
+      <a class="btn" href="#calc">Рассчитать стоимость</a>
+      <button class="btn ghost" data-open>Консультация</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>700+</b><span>авто в год проходят через нашу студию</span></div>
+      <div class="stat"><b>Koch Chemie</b><span>профессиональные материалы из Германии</span></div>
+      <div class="stat"><b>24/7</b><span>бокс под охраной и видеонаблюдением</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Услуги -->
+<section id="services">
+  <div class="wrap">
+    <h2>Наши <span class="acc">услуги</span></h2>
+    <p class="lead">Выберите услугу — мы автоматически отметим её в калькуляторе.</p>
+    <div class="grid4">
+      <div class="card"><div class="ic">✦</div><h3>Полировка кузова</h3><p>Удаляем паутинку, голограммы и мелкие царапины. Возвращаем зеркальный блеск лаку.</p><div class="price">от <span>15 000 ₽</span></div><button class="btn ghost" type="button" data-svc="polish">Выбрать</button></div>
+      <div class="card"><div class="ic">◈</div><h3>Керамическое покрытие</h3><p>Гидрофобный слой с твёрдостью 9H защищает лак до 3 лет и облегчает мойку.</p><div class="price">от <span>22 000 ₽</span></div><button class="btn ghost" type="button" data-svc="ceramic">Выбрать</button></div>
+      <div class="card"><div class="ic">▣</div><h3>Бронеплёнка зон риска</h3><p>Полиуретановая плёнка на капот, бампер, зеркала и пороги. Защита от сколов.</p><div class="price">от <span>45 000 ₽</span></div><button class="btn ghost" type="button" data-svc="ppf">Выбрать</button></div>
+      <div class="card"><div class="ic">❖</div><h3>Детейлинг-химчистка</h3><p>Глубокая чистка салона: кожа, пластик, потолок. Удаляем пятна и запахи.</p><div class="price">от <span>12 000 ₽</span></div><button class="btn ghost" type="button" data-svc="clean">Выбрать</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- До / После
+     ГДЕ ВЗЯТЬ ФОТО: положите СВОИ снимки Mercedes-Benz C-Class рядом с этим файлом:
+       ./img/before.jpg — авто ДО обработки
+       ./img/after.jpg  — авто ПОСЛЕ обработки
+     Снимайте оба кадра с одной точки и в одном ракурсе (лучше 16:9, от 1600 px по ширине),
+     тогда шторка будет «проявлять» именно результат полировки.
+     Не используйте пресс-фото производителей и картинки с водяными знаками — это чужие авторские права.
+     Пока файлов нет, на их месте автоматически показывается тёмная заглушка с подсказкой. -->
+<section id="ba">
+  <div class="wrap">
+    <h2>Результат <span class="acc">до и после</span></h2>
+    <p class="lead">Потяните ползунок, чтобы сравнить состояние кузова.</p>
+    <div class="ba" id="baBox" role="slider" tabindex="0" aria-label="Сравнение до и после: Mercedes-Benz C-Class" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <!-- Нижний слой: ПОСЛЕ -->
+      <div class="layer" id="baAfter">
+        <img src="./img/after.jpg" alt="Mercedes-Benz C-Class после обработки" draggable="false" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('miss')">
+        <div class="ph"><b>Фото «после»</b><span class="d">Положите свой снимок Mercedes-Benz C-Class сюда:</span><code>img/after.jpg</code></div>
+      </div>
+      <!-- Верхний слой: ДО (обрезается clip-path) -->
+      <div class="layer" id="baBefore">
+        <img src="./img/before.jpg" alt="Mercedes-Benz C-Class до обработки" draggable="false" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('miss')">
+        <div class="ph"><b>Фото «до»</b><span class="d">Положите свой снимок Mercedes-Benz C-Class сюда:</span><code>img/before.jpg</code></div>
+      </div>
+      <div class="tag l">ДО</div>
+      <div class="tag r">ПОСЛЕ</div>
+      <div class="knob" id="baKnob"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Калькулятор -->
+<section id="calc">
+  <div class="wrap">
+    <h2>Калькулятор <span class="acc">стоимости</span></h2>
+    <p class="lead">Две и более услуги — скидка 10% на весь заказ.</p>
+    <div class="calc">
+      <div class="panel">
+        <h3><em>01</em>Класс автомобиля</h3>
+        <div class="opts" id="cars">
+          <div class="opt"><input type="radio" name="car" id="c1" value="Седан" data-k="1" checked><label for="c1">Седан<small>коэффициент ×1.0</small></label></div>
+          <div class="opt"><input type="radio" name="car" id="c2" value="Кроссовер" data-k="1.2"><label for="c2">Кроссовер<small>коэффициент ×1.2</small></label></div>
+          <div class="opt"><input type="radio" name="car" id="c3" value="Внедорожник" data-k="1.4"><label for="c3">Внедорожник<small>коэффициент ×1.4</small></label></div>
+        </div>
+        <h3><em>02</em>Услуги</h3>
+        <div class="opts" id="svcs">
+          <div class="opt"><input type="checkbox" id="polish" data-price="15000" data-name="Полировка"><label for="polish">Полировка<small>15 000 ₽</small></label></div>
+          <div class="opt"><input type="checkbox" id="ceramic" data-price="22000" data-name="Керамика"><label for="ceramic">Керамика<small>22 000 ₽</small></label></div>
+          <div class="opt"><input type="checkbox" id="clean" data-price="12000" data-name="Химчистка"><label for="clean">Химчистка<small>12 000 ₽</small></label></div>
+          <div class="opt"><input type="checkbox" id="ppf" data-price="45000" data-name="Бронеплёнка"><label for="ppf">Бронеплёнка<small>45 000 ₽</small></label></div>
+        </div>
+      </div>
+      <div class="panel sum">
+        <h3><em>03</em>Ваш расчёт</h3>
+        <div class="row"><span>Класс авто</span><b id="sCar">Седан</b></div>
+        <div class="row"><span>Услуги</span><b id="sSvc">не выбраны</b></div>
+        <div class="total" id="sTotal">0 ₽</div>
+        <div class="old" id="sOld" hidden></div>
+        <div class="save" id="sSave" hidden></div>
+        <button class="btn" type="button" id="fix" disabled style="width:100%">Зафиксировать цену</button>
+        <p class="hint">Цена предварительная, точную назовём после осмотра авто.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Футер -->
+<footer id="contacts">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4>Адрес</h4><p>г. Москва, ул. Автозаводская, 18, стр. 2</p><p>Отдельный бокс, вход со двора</p></div>
+      <div><h4>График работы</h4><p>Пн–Сб: 09:00–21:00</p><p>Вс: по предварительной записи</p><p><a class="tel" href="tel:+74950000000">+7 (495) 000-00-00</a></p></div>
+      <div><h4>Мессенджер</h4><p>Ответим в чате в течение 10 минут</p><a class="btn" href="https://max.ru/" target="_blank" rel="noopener" style="margin-top:8px">Написать в MAX</a></div>
+    </div>
+    <div class="copy">© 2026 APEX Detailing. Все права защищены.</div>
+  </div>
+</footer>
+
+<!-- Модальное окно заявки -->
+<div class="ov" id="ov">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="x" type="button" id="mClose" aria-label="Закрыть">×</button>
+    <div id="mForm">
+      <h3 id="mTitle">Оставить заявку</h3>
+      <p class="lead">Перезвоним или напишем в удобном для вас способе.</p>
+      <form id="lead" novalidate>
+        <div class="fld"><label class="t" for="fName">Имя *</label><input type="text" id="fName" autocomplete="name" placeholder="Как к вам обращаться"></div>
+        <div class="fld"><label class="t" for="fPhone">Телефон *</label><input type="tel" id="fPhone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__"></div>
+        <div class="fld"><label class="t">Удобный способ связи</label>
+          <div class="seg">
+            <div class="opt"><input type="radio" name="how" id="h1" value="Написать в MAX" checked><label for="h1">Написать в MAX</label></div>
+            <div class="opt"><input type="radio" name="how" id="h2" value="Позвонить"><label for="h2">Позвонить</label></div>
+          </div>
+        </div>
+        <div class="pv" id="pv"></div>
+        <button class="btn" type="submit" id="send">Отправить заявку</button>
+      </form>
+    </div>
+    <div class="ok" id="mOk" hidden>
+      <div class="ck">✓</div>
+      <h3>Заявка принята!</h3>
+      <p class="lead" id="okText" style="margin:10px auto 22px">Скоро свяжемся с вами в MAX</p>
+      <button class="btn ghost" type="button" id="okClose">Закрыть</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* В боевом проекте сюда подставляется URL серверного обработчика/вебхука,
+   который сам отправляет сообщение в MAX. Токен бота MAX нельзя хранить
+   в открытом клиентском JS — он должен лежать только на сервере.
+   Значение "DEMO" включает демо-режим: заявка пишется в консоль браузера. */
+const MAX_WEBHOOK_URL = "DEMO";
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const rub = n => Math.round(n).toLocaleString('ru-RU') + ' ₽';
+
+/* ---------- Мобильное бургер-меню ---------- */
+const burger = $('#burger'), mmenu = $('#mmenu');
+function setMenu(open) {
+  burger.classList.toggle('open', open);
+  mmenu.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
+}
+burger.addEventListener('click', () => setMenu(!mmenu.classList.contains('open')));
+// Любой пункт меню (ссылка или кнопка) закрывает его
+$$('#mmenu a, #mmenu button').forEach(el => el.addEventListener('click', () => setMenu(false)));
+// На широком экране меню прячется само
+window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
+
+/* ---------- Слайдер «До / После»: шторка мышью и тачем ---------- */
+/* Картинки лежат в разметке (<img>), JS их не создаёт и не перезаписывает.
+   Положение шторки — в процентах; перерисовка через requestAnimationFrame. */
+(function () {
+  const box = $('#baBox'), before = $('#baBefore'), knob = $('#baKnob');
+  let pos = 50, drag = false, raf = 0, rect = null;
+
+  function paint() {
+    raf = 0;
+    before.style.clipPath = 'inset(0 ' + (100 - pos) + '% 0 0)';
+    knob.style.left = pos + '%';
+    box.setAttribute('aria-valuenow', String(Math.round(pos)));
+  }
+  function setPercent(p) {
+    pos = Math.min(100, Math.max(0, p));
+    if (!raf) raf = requestAnimationFrame(paint);
+  }
+  function fromX(x) {
+    if (!rect || !rect.width) rect = box.getBoundingClientRect();
+    setPercent(((x - rect.left) / rect.width) * 100);
+  }
+
+  box.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    drag = true;
+    rect = box.getBoundingClientRect();             // размеры считаем один раз за жест
+    try { box.setPointerCapture(e.pointerId); } catch (_) {}
+    fromX(e.clientX);
+  });
+  box.addEventListener('pointermove', e => { if (drag) fromX(e.clientX); });
+  const stop = () => { drag = false; rect = null; };
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(ev => box.addEventListener(ev, stop));
+  box.addEventListener('dragstart', e => e.preventDefault());
+  window.addEventListener('resize', () => { rect = null; });
+
+  // Управление с клавиатуры: ← → шаг 5%, Home/End — края
+  box.addEventListener('keydown', e => {
+    const step = { ArrowLeft: -5, ArrowRight: 5 }[e.key];
+    if (step) { setPercent(pos + step); e.preventDefault(); }
+    else if (e.key === 'Home') { setPercent(0); e.preventDefault(); }
+    else if (e.key === 'End') { setPercent(100); e.preventDefault(); }
+  });
+
+  // Если файл не загрузился ещё до запуска скрипта — включаем запасную подложку
+  $$('img', box).forEach(img => {
+    if (img.complete && img.naturalWidth === 0) img.parentNode.classList.add('miss');
+  });
+  paint();
+})();
+
+/* ---------- Калькулятор стоимости ---------- */
+const state = { car: 'Седан', services: [], total: 0, old: 0, discount: 0 };
+const chks = $$('#svcs input');
+// Пересчитывает сумму при любом изменении; скидка 10% от 2 услуг
+function recalc() {
+  const car = $('input[name=car]:checked');
+  const k = parseFloat(car.dataset.k);
+  const sel = chks.filter(c => c.checked);
+  const base = sel.reduce((s, c) => s + +c.dataset.price, 0) * k;
+  const disc = sel.length >= 2 ? base * 0.1 : 0;
+  Object.assign(state, { car: car.value, services: sel.map(c => c.dataset.name), old: base, total: base - disc, discount: disc });
+
+  $('#sCar').textContent = state.car;
+  $('#sSvc').textContent = sel.length ? state.services.join(', ') : 'не выбраны';
+  $('#sTotal').textContent = rub(state.total);
+  $('#sOld').hidden = $('#sSave').hidden = !disc;
+  if (disc) { $('#sOld').textContent = rub(base); $('#sSave').textContent = 'Ваша выгода: ' + rub(disc); }
+  $('#fix').disabled = !sel.length;
+}
+$$('#cars input, #svcs input').forEach(i => i.addEventListener('change', recalc));
+
+// Кнопки «Выбрать» в карточках услуг: отмечаем услугу и скроллим к калькулятору
+$$('[data-svc]').forEach(b => b.addEventListener('click', () => {
+  const box = $('#' + b.dataset.svc);
+  if (box) box.checked = true;
+  recalc();
+  $('#calc').scrollIntoView({ behavior: 'smooth' });
+}));
+recalc();
+
+/* ---------- Модальное окно ---------- */
+const ov = $('#ov');
+let fromCalc = false, lastFocus = null;
+// Открывает модалку; withCalc=true — подставляет данные калькулятора в предпросмотр
+function openModal(withCalc) {
+  fromCalc = withCalc;
+  lastFocus = document.activeElement;
+  $('#mForm').hidden = false; $('#mOk').hidden = true;
+  $('#fName').classList.remove('err'); $('#fPhone').classList.remove('err');
+  $('#pv').innerHTML = withCalc
+    ? `<b>Класс авто:</b> ${state.car}<br><b>Услуги:</b> ${state.services.join(', ')}<br><b>Итого:</b> ${rub(state.total)}${state.discount ? ' (скидка ' + rub(state.discount) + ')' : ''}`
+    : '<b>Запрос на бесплатную консультацию</b>';
+  ov.classList.add('open'); document.body.style.overflow = 'hidden';
+  setTimeout(() => $('#fName').focus(), 50);
+}
+function closeModal() {
+  if (!ov.classList.contains('open')) return;
+  ov.classList.remove('open'); document.body.style.overflow = '';
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+$$('[data-open]').forEach(b => b.addEventListener('click', () => openModal(false)));
+$('#fix').addEventListener('click', () => openModal(true));
+$('#mClose').addEventListener('click', closeModal);
+$('#okClose').addEventListener('click', closeModal);
+ov.addEventListener('click', e => { if (e.target === ov) closeModal(); });          // клик вне окна
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); }); // клавиша Esc
+// Фокус не уходит за пределы открытой модалки
+ov.addEventListener('keydown', e => {
+  if (e.key !== 'Tab') return;
+  const f = $$('button, input, a[href]', ov).filter(el => !el.disabled && el.getClientRects().length);
+  if (!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+  else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+});
+
+/* ---------- Маска телефона +7 (___) ___-__-__ ---------- */
+const phone = $('#fPhone');
+// Разделители добавляются только когда за ними есть цифры — так Backspace стирает без «залипания»
+function maskPhone(raw) {
+  let d = raw.replace(/\D/g, '');
+  if (d[0] === '7' || d[0] === '8') d = d.slice(1);
+  d = d.slice(0, 10);
+  if (!d.length) return '';
+  let out = '+7 (' + d.slice(0, 3);
+  if (d.length > 3) out += ') ' + d.slice(3, 6);
+  if (d.length > 6) out += '-' + d.slice(6, 8);
+  if (d.length > 8) out += '-' + d.slice(8, 10);
+  return out;
+}
+phone.addEventListener('input', () => { phone.value = maskPhone(phone.value); phone.classList.remove('err'); });
+phone.addEventListener('focus', () => { if (!phone.value) phone.value = '+7 ('; });
+phone.addEventListener('blur', () => { if (phone.value === '+7 (') phone.value = ''; });
+$('#fName').addEventListener('input', e => e.target.classList.remove('err'));
+
+/* ---------- Отправка заявки в MAX ---------- */
+// Формирует структурированный объект и читаемый текст, затем отправляет на вебхук
+async function sendLeadToMax(leadData) {
+  const lines = [
+    '🔥 Новая заявка APEX Detailing',
+    'Имя: ' + leadData.name,
+    'Телефон: ' + leadData.phone,
+    'Способ связи: ' + leadData.contactMethod,
+    'Класс авто: ' + (leadData.carClass || '—'),
+    'Услуги: ' + (leadData.services.length ? leadData.services.join(', ') : 'Бесплатная консультация'),
+    'Итоговая сумма: ' + (leadData.total ? rub(leadData.total) : '—') + (leadData.discount ? ' (скидка ' + rub(leadData.discount) + ')' : '')
+  ];
+  const payload = { ...leadData, text: lines.join('\n'), createdAt: new Date().toISOString() };
+
+  // Демо-режим: имитируем сеть с задержкой 500 мс и пишем заявку в консоль
+  if (!MAX_WEBHOOK_URL || MAX_WEBHOOK_URL === 'DEMO') {
+    await new Promise(r => setTimeout(r, 500));
+    console.log('[DEMO] Заявка для MAX:', payload);
+    console.log(payload.text);
+    return { ok: true, demo: true };
+  }
+  // Боевой режим: POST JSON на серверный обработчик
+  const res = await fetch(MAX_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  if (!res.ok) throw new Error('Ошибка отправки: ' + res.status);
+  return { ok: true };
+}
+
+// Валидация формы, лоадер на кнопке и экран подтверждения
+$('#lead').addEventListener('submit', async e => {
+  e.preventDefault();
+  const name = $('#fName'), btn = $('#send');
+  const digits = phone.value.replace(/\D/g, '');
+  name.classList.toggle('err', !name.value.trim());
+  phone.classList.toggle('err', digits.length < 11);
+  if (!name.value.trim() || digits.length < 11) return;
+
+  const lead = {
+    name: name.value.trim(),
+    phone: phone.value,
+    contactMethod: $('input[name=how]:checked').value,
+    carClass: fromCalc ? state.car : null,
+    services: fromCalc ? state.services : [],
+    total: fromCalc ? state.total : 0,
+    discount: fromCalc ? state.discount : 0
+  };
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Отправляем…';
+  try {
+    await sendLeadToMax(lead);
+    $('#okText').textContent = lead.contactMethod === 'Позвонить'
+      ? 'Скоро позвоним вам по указанному номеру'
+      : 'Скоро свяжемся с вами в MAX';
+    $('#mForm').hidden = true; $('#mOk').hidden = false;
+    e.target.reset();
+  } catch (err) {
+    console.error(err);
+    alert('Не удалось отправить заявку. Позвоните нам: +7 (495) 000-00-00');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Отправить заявку';
+  }
+});
+</script>
+</body>
+</html>
